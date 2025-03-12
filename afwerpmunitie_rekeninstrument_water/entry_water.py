@@ -1,5 +1,6 @@
 # authors: Martin van der Eijk (martin.vandereijk@deltares.nl) en Peter Wellens (p.r.wellens@tudelft.nl)
 # version 0.1 230714
+# version 0.2 241024
 
 import scipy.integrate as it
 import shutil
@@ -633,11 +634,11 @@ class EOM:
 
 class airFall:
     def __init__(self, body, mass, density_air, gravity, Z0, V0):
-        self.Az = body.R ** 2 * np.pi * 0.25
+        self.Az = body.R ** 2 * np.pi   #PRW 241024 corrected from v0.1: body.R ** 2 * np.pi * 0.25
         self.dens_air = density_air
         self.grav = gravity
         self.mass = mass
-        self.Cd_air = 0.18
+        self.Cd_air = 0.23              #PRW 241024 corrected from v0.1: 0.18 (now in accordance with achtergrond/241024-peter_wellens-afwerpmunitie_eindsnelheid_ten_behoeve_van_weerstandscoefficient.xlsx)
         self.Z0 = Z0
         self.V0 = -V0
 
